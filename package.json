@@ -1,0 +1,22 @@
+{
+  "name": "dr-vickis-image-resizer",
+  "version": "1.0.0",
+  "description": "Dr. Vicki's professional image resizing application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.32.6",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["image", "resize", "web", "application"],
+  "author": "Your Name",
+  "license": "MIT"
+} 

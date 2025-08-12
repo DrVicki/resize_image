@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Vicki's Image Resizer - Professional Image Processing Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-image"></i>
+                <h1>Dr. Vicki's Image Resizer</h1>
+            </div>
+            <p class="subtitle">Professional image processing made simple</p>
+        </header>
+
+        <main class="main-content">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drop your image here</h3>
+                        <p>or click to browse</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+                </div>
+                
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-details">
+                        <img id="previewImage" alt="Preview">
+                        <div class="file-text">
+                            <h4 id="fileName"></h4>
+                            <p id="fileSize"></p>
+                            <p id="fileDimensions"></p>
+                        </div>
+                    </div>
+                    <button class="remove-btn" id="removeFile">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3><i class="fas fa-cog"></i> Resize Settings</h3>
+                
+                <div class="settings-grid">
+                    <div class="setting-group">
+                        <label for="width">Width (px)</label>
+                        <input type="number" id="width" placeholder="Auto" min="1">
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="height">Height (px)</label>
+                        <input type="number" id="height" placeholder="Auto" min="1">
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="quality">Quality (%)</label>
+                        <input type="range" id="quality" min="1" max="100" value="80">
+                        <span id="qualityValue">80%</span>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="format">Output Format</label>
+                        <select id="format">
+                            <option value="jpeg">JPEG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp">WebP</option>
+                            <option value="gif">GIF</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="maintainAspectRatio" checked>
+                        <span class="checkmark"></span>
+                        Maintain aspect ratio
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="transparentBackground">
+                        <span class="checkmark"></span>
+                        Create transparent background
+                    </label>
+                </div>
+                
+                <button class="resize-btn" id="resizeBtn" disabled>
+                    <i class="fas fa-magic"></i>
+                    Resize Image
+                </button>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h3><i class="fas fa-check-circle"></i> Processing Complete!</h3>
+                <div class="result-content">
+                    <div class="result-info">
+                        <p><strong>Original:</strong> <span id="originalInfo"></span></p>
+                        <p><strong>Resized:</strong> <span id="resizedInfo"></span></p>
+                        <p><strong>File size:</strong> <span id="fileSizeInfo"></span></p>
+                    </div>
+                    <div class="result-actions">
+                        <button class="download-btn" id="downloadBtn">
+                            <i class="fas fa-download"></i>
+                            Download
+                        </button>
+                        <button class="new-image-btn" id="newImageBtn">
+                            <i class="fas fa-plus"></i>
+                            Process Another Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p>Processing your image...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
